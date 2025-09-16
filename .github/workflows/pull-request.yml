@@ -11,12 +11,13 @@ jobs:
 
       - uses: pnpm/action-setup@v4
 
-      - uses: actions/cache@v4
+      - name: Cache turbo build setup
+        uses: actions/cache@v4
         with:
           path: .turbo
-          key: turbo-cache-${{ github.ref_name }}-${{ hashFiles('pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
           restore-keys: |
-            turbo-cache-${{ github.ref_name }}-
+            ${{ runner.os }}-turbo-
 
       - uses: actions/setup-node@v4
         with:
