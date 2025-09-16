@@ -14,7 +14,7 @@ jobs:
       - run: echo ${{ github.sha }}
         shell: bash
 
-      - run: echo ${{ github.ref_name }}
+      - run: echo ${{ github.head_ref }}
         shell: bash
 
       - name: Cache turbo build setup
